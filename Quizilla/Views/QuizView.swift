@@ -40,30 +40,23 @@ struct QuizView: View {
             
             
             VStack {
-                Spacer()
-                Image(systemName: "brain.head.profile")
-                    .font(.system(size: 80))
-                    .foregroundStyle(Color.theme.text)
-               
+//                Text("\(score)")
+//                    .fontWeight(.bold)
+//                    .foregroundColor(Color.theme.text)
+//                    .font(.system(size: 80))
+//                    .shadow(color:Color.black, radius: 2, x: 4, y: 4)
                 
-                VStack(alignment: .center, spacing: 16){
-                    Text("\(currentQuestionIndex + 1) of \(questions.count)")
-                        .font(.title3)
-                        .fontWeight(.bold)
-                        .padding()
-                    
-                    
-                   
-                        
-                        
+                VStack(alignment: .center, spacing: 16) {
                         Text(question.title)
-                            .font(.title2)
-                            .fontWeight(.semibold)
-                            .multilineTextAlignment(.center)
-                            .fixedSize(horizontal: false, vertical: true)
-                            .padding(.bottom, 20)
-                            .padding(.horizontal)
-                        
+                        .modifier(CardModifier())
+                    
+                    ProgressView(value: Double(currentQuestionIndex + 1),
+                                 total: Double(questions.count))
+                        .progressViewStyle(.linear)
+                        .padding(.horizontal, 30)
+                        .padding(.vertical)
+                        .tint(Color.theme.secondaryPurpleColor)
+                 
                         ForEach(question.options.indices, id: \.self) {index in
                             
                             Button {
@@ -78,19 +71,7 @@ struct QuizView: View {
                             .modifier(ButtonModifier())
                             .disabled(selectedAnswerIndex != nil)
                         }
-                        Spacer()
-                        
-                   
-                            
-                        Text("\(score)")
-                            .fontWeight(.bold)
-                            .foregroundColor(Color.theme.text)
-                            .font(.system(size: 50))
-                       
-                        .padding()
-                        
-                    
-                    Spacer()
+                
                 }
 
                 
