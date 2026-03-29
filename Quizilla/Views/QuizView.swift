@@ -106,7 +106,12 @@ struct QuizView: View {
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            currentQuestionIndex += 1
+            if currentQuestionIndex < questions.count - 1 {
+                currentQuestionIndex += 1
+            } else {
+                screen = .result
+            }
+            
             selectedAnswerIndex = nil
         }
     }
