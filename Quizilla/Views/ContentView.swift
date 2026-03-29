@@ -8,7 +8,9 @@
 import SwiftUI
 
 enum showScreen {
-    case start, quiz, result
+    case start
+    case quiz
+    case result
     
 }
 

@@ -128,6 +128,6 @@ struct QuizView: View {
 
 
 #Preview {
-    QuizView()
+    QuizView(screen: .constant(.quiz))
 }
     

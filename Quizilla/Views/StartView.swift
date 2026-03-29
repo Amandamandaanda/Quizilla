@@ -29,7 +29,7 @@ struct StartView: View {
                     .foregroundStyle(Color.theme.text)
                 
                 Button("Starta Quiz") {
-                    //lägg till quiz
+                    screen = .quiz
                 }
                 .modifier(ButtonModifier())
                 

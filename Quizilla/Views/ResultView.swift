@@ -23,5 +23,5 @@ struct ResultView: View {
 }
 
 #Preview {
-    ResultView()
+    ResultView(screen: .constant(.result))
 }
