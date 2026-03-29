@@ -10,5 +10,18 @@ import SwiftUI
 struct QuizView: View {
     var body: some View {
         
+        ZStack {
+            VStack {
+                // Här lägger vi all design kod
+            }
+           
+        }
+        .gradientBackground()
+        
     }
 }
+
+#Preview {
+    QuizView()
+}
+    
