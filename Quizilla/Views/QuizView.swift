@@ -31,6 +31,8 @@ struct QuizView: View {
         Question(title: "Who is the most followed person on Instagram?", options: ["Kylie Jenner", "Taylor Swift", "Cristiano Ronaldo"], correctAnswerIndex: 2)
     ]
     
+    @Binding var screen: showScreen
+
     
     var body: some View {
         
