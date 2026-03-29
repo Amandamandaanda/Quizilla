@@ -19,4 +19,6 @@ struct ColorTheme {
     let purpleColor = Color("PurpleColor")
     let secondaryPurpleColor = Color("SecondaryPurpleColor")
     let pinkColor = Color("PinkColor")
+    let buttonBorder = Color("ButtonBorderColor")
+    let buttonTextColor = Color("ButtonTextColor")
 }
