@@ -13,32 +13,34 @@ struct StartView: View {
     var body: some View {
         ZStack {
             
-            Color.black
-                .ignoresSafeArea()
-            
             VStack(spacing: 20) {
                 Image(systemName: "brain.head.profile")
                     .font(.system(size: 70))
-                    .foregroundColor(.white)
+                    .foregroundStyle(Color.theme.text)
                 
                 Text("Quizilla")
                     .font(.largeTitle)
                     .fontWeight(.heavy)
-                    .foregroundColor(.purple.opacity(0.9))
+                    .foregroundStyle(Color.theme.text)
+                    
                 
                 Text("Testa dina kunskaper!")
                     .font(.body)
-                    .foregroundColor(.white.opacity(0.8))
+                    .foregroundStyle(Color.theme.text)
                 
                 Button("Starta Quiz") {
                     //lägg till quiz
                 }
-                .buttonStyle(.borderedProminent)
-                .tint(.white)
-                .controlSize(.large)
-                .foregroundColor(.purple)
-                .padding()
+                .modifier(ButtonModifier())
+                
+        
             }
         }
+        .gradientBackground()
+        
     }
+}
+
+#Preview {
+    StartView(screen: .constant(.start))
 }

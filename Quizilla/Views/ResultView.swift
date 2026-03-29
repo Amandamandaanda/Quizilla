@@ -14,6 +14,14 @@ struct ResultView: View {
 
     
     var body: some View {
+        ZStack{
+            
+        }
+            .gradientBackground()
   
     }
+}
+
+#Preview {
+    ResultView()
 }
