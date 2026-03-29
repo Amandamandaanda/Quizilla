@@ -8,7 +8,7 @@
 import SwiftUI
 
 enum showScreen {
-    case start
+    case start, quiz, result
     
 }
 
@@ -20,6 +20,12 @@ struct ContentView: View {
         switch screen {
         case .start:
             StartView(screen: $screen)
+            
+        case .quiz:
+            QuizView(screen: $screen)
+            
+        case .result:
+            ResultView(screen: $screen)
         }
     }
 }
