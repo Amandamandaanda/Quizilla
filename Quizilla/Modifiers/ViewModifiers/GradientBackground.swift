@@ -12,11 +12,13 @@ struct GradientBackground: ViewModifier {
     func body(content: Content) -> some View {
         ZStack {
             LinearGradient(
-                colors: [
-                    Color.theme.background,
-                    Color.theme.purpleColor.opacity(0.4)
+                stops: [
+                    .init(color: Color.theme.thirdPurpleColor, location: 0.0),
+                    .init(color: Color.theme.purpleColor, location: 0.2),
+                    .init(color: Color.theme.secondaryPurpleColor, location: 0.8),
+                    
+                    .init(color: Color.theme.secondaryPurpleColor, location: 1.0)
                 ],
-                               
                 startPoint: .top,
                 endPoint: .bottom
             )
