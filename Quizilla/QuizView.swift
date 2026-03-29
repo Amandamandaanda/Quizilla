@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct QuizView: View {
+    @Binding var screen: showScreen
+
+    
     var body: some View {
         
     }

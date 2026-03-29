@@ -7,8 +7,13 @@
 
 import SwiftUI
 
+
+
 struct ResultView: View {
+    @Binding var screen: showScreen
+
+    
     var body: some View {
-        
+  
     }
 }
