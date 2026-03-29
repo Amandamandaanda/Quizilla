@@ -18,9 +18,10 @@ struct QuizView: View {
     
     // Placeholders for now, fetch from viewmodel later
     
-    
-    @State private var currentQuestionIndex: Int = 0
-    @State private var score: Int = 0
+    @Binding var screen: showScreen
+    @Binding var currentQuestionIndex: Int
+    @Binding var score: Int
+
     
     @State private var selectedAnswerIndex: Int? = nil
    
@@ -31,7 +32,7 @@ struct QuizView: View {
         Question(title: "Who is the most followed person on Instagram?", options: ["Kylie Jenner", "Taylor Swift", "Cristiano Ronaldo"], correctAnswerIndex: 2)
     ]
     
-    @Binding var screen: showScreen
+
 
     
     var body: some View {
@@ -133,6 +134,15 @@ struct QuizView: View {
 
 
 #Preview {
-    QuizView(screen: .constant(.quiz))
+
+    @State var screen: showScreen = .quiz
+    @State var currentQuestionIndex: Int = 0
+    @State var score: Int = 0
+
+    QuizView(
+        screen: $screen,
+        currentQuestionIndex: $currentQuestionIndex,
+        score: $score
+    )
 }
     
