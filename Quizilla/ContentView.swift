@@ -7,15 +7,20 @@
 
 import SwiftUI
 
+enum showScreen {
+    case start
+    
+}
+
 struct ContentView: View {
+    @State private var screen: showScreen = .start
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        
+        switch screen {
+        case .start:
+            StartView(screen: $screen)
         }
-        .padding()
     }
 }
 
