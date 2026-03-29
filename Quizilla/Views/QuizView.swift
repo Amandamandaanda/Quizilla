@@ -55,7 +55,7 @@ struct QuizView: View {
                         .progressViewStyle(.linear)
                         .padding(.horizontal, 30)
                         .padding(.vertical)
-                        .tint(Color.theme.secondaryPurpleColor)
+                        .tint(Color.theme.buttonBorder)
                  
                         ForEach(question.options.indices, id: \.self) {index in
                             
