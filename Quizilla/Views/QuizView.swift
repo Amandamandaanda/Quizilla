@@ -7,19 +7,142 @@
 
 import SwiftUI
 
+// Temporary Question struct
+struct Question {
+    let title : String
+    let options: [String]
+    let correctAnswerIndex: Int
+}
+
 struct QuizView: View {
+    
+    // Placeholders for now, fetch from viewmodel later
+    
+    
+    @State private var currentQuestionIndex: Int = 0
+    @State private var score: Int = 0
+    
+    @State private var selectedAnswerIndex: Int? = nil
+   
+    
+    @State private var questions: [Question] = [
+        Question(title: "What was the 2022 FIFA World Cup Final?", options: ["Argentina vs Brazil","Argentina vs France","Argentina vs Croatia"], correctAnswerIndex: 1),
+        Question(title: "What is the last book in the Twilight novel series?", options: ["Breaking Dawn","Life And Death: Twilight Reimagined","Midnight Sun"], correctAnswerIndex: 2),
+        Question(title: "Who is the most followed person on Instagram?", options: ["Kylie Jenner", "Taylor Swift", "Cristiano Ronaldo"], correctAnswerIndex: 2)
+    ]
+    
+    
     var body: some View {
         
+        let question = questions[currentQuestionIndex]
+
         ZStack {
+            
+            
             VStack {
-                // Här lägger vi all design kod
+                Spacer()
+                Image(systemName: "brain.head.profile")
+                    .font(.system(size: 80))
+                    .foregroundStyle(Color.theme.text)
+               
+                
+                VStack(alignment: .center, spacing: 16){
+                    Text("\(currentQuestionIndex + 1) of \(questions.count)")
+                        .font(.title3)
+                        .fontWeight(.bold)
+                        .padding()
+                    
+                    
+                   
+                        
+                        
+                        Text(question.title)
+                            .font(.title2)
+                            .fontWeight(.semibold)
+                            .multilineTextAlignment(.center)
+                            .fixedSize(horizontal: false, vertical: true)
+                            .padding(.bottom, 20)
+                            .padding(.horizontal)
+                        
+                        ForEach(question.options.indices, id: \.self) {index in
+                            
+                            Button {
+                                submitAnswer(index: index)
+                            } label: {
+                                Text(question.options[index])
+                                    .frame(maxWidth: .infinity)
+                                    .padding()
+                                    .background(backgroundColor(for: index))
+                                    
+                            }
+                            .modifier(ButtonModifier())
+                            .disabled(selectedAnswerIndex != nil)
+                        }
+                        Spacer()
+                        
+                   
+                            
+                        Text("\(score)")
+                            .fontWeight(.bold)
+                            .foregroundColor(Color.theme.text)
+                            .font(.system(size: 50))
+                       
+                        .padding()
+                        
+                    
+                    Spacer()
+                }
+
+                
+               
+                
+                
+                
+                
+                
             }
+            .padding(.vertical, 50)
+            
            
+            
         }
         .gradientBackground()
         
+        
+        
+    }
+    
+    
+    func submitAnswer(index: Int) {
+        let question = questions[currentQuestionIndex]
+        
+        selectedAnswerIndex = index
+        
+        if index == question.correctAnswerIndex {
+            score += 1
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            currentQuestionIndex += 1
+            selectedAnswerIndex = nil
+        }
+    }
+    
+    func backgroundColor(for index: Int) -> Color {
+        let question = questions[currentQuestionIndex]
+        
+        if let selected = selectedAnswerIndex {
+            if index == question.correctAnswerIndex {
+                return .green
+            } else if index == selected {
+                return .red
+            }
+        }
+        return Color.theme.secondaryPurpleColor.opacity(0.15)
     }
 }
+
+
 
 #Preview {
     QuizView()

@@ -10,6 +10,7 @@ import SwiftUI
 
 struct ButtonModifier: ViewModifier {
     func body(content: Content) -> some View {
+      
         content
             .font(.subheadline)
             .fontWeight(.semibold)
