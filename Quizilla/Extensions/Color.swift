@@ -21,4 +21,5 @@ struct ColorTheme {
     let pinkColor = Color("PinkColor")
     let buttonBorder = Color("ButtonBorderColor")
     let buttonTextColor = Color("ButtonTextColor")
+    let thirdPurpleColor = Color("ThirdPurpleColor")
 }
