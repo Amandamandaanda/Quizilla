@@ -14,7 +14,7 @@ struct StartView: View {
         ZStack {
             
             VStack(spacing: 20) {
-                Image(systemName: "brain.head.profile")
+                Image(systemName: "gamecontroller.fill")
                     .font(.system(size: 70))
                     .foregroundStyle(Color.theme.text)
                 
@@ -22,25 +22,21 @@ struct StartView: View {
                     .font(.largeTitle)
                     .fontWeight(.heavy)
                     .foregroundStyle(Color.theme.text)
+
                     
                 
                 Text("Testa dina kunskaper!")
-                    .font(.body)
+                    .font(.title3)
+                    .fontWeight(.light)
                     .foregroundStyle(Color.theme.text)
+                    .padding(.bottom, 40)
                 
                 Button("Starta Quiz") {
                     screen = .quiz
                 }
                 .modifier(ButtonModifier())
-                
-        
             }
         }
         .gradientBackground()
-        
     }
-}
-
-#Preview {
-    StartView(screen: .constant(.start))
 }

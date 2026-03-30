@@ -20,24 +20,25 @@ struct ResultView: View {
     var body: some View {
         ZStack{
             VStack(spacing: 20) {
-                Image(systemName: displayScore > totalQuestions / 2 ? "checkmark.seal.fill" : "xmark.seal.fill")
+                Image(systemName: displayScore > totalQuestions / 2 ? "star.hexagon.fill" : "xmark.circle.fill")
                     .font(.system(size: 60))
-                    .foregroundStyle(displayScore > totalQuestions / 2 ? .purple : .red)
-                Text("Resultat")
+                    .foregroundStyle(displayScore > totalQuestions / 2 ? .green : .red)
+                            Text("Resultat")
                                 .font(.largeTitle)
-                                .fontWeight(.bold)
+                                .fontWeight(.heavy)
                                 .foregroundStyle(Color.theme.text)
 
                             Text("\(displayScore) av \(totalQuestions) rätt")
                                 .font(.title2)
                                 .foregroundStyle(Color.theme.text)
+                                .padding(.bottom, 60)
 
                             Button("Spela igen") {
-                                // Återställ quiz
+                                //återställer quiz
                                 currentQuestionIndex = 0
                                 score = 0
                                 
-                                // Navigera tillbaka till StartView
+                                //tillbaka till stsart
                                 screen = .start
                             }
                             .modifier(ButtonModifier())
@@ -45,29 +46,9 @@ struct ResultView: View {
                         }
                         .padding()
                     
-            
         }
             .gradientBackground()
   
     }
 }
 
-struct ResultPreview: View {
-    @State var screen: showScreen = .result
-    @State var currentQuestionIndex = 0
-    @State var score = 2
-    
-    var body: some View {
-        ResultView(
-            displayScore: score,
-            totalQuestions: 3,
-            screen: $screen,
-            currentQuestionIndex: $currentQuestionIndex,
-            score: $score)
-    }
-}
-
-#Preview {
-
-        ResultPreview()
-}

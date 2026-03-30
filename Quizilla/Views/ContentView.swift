@@ -33,15 +33,12 @@ struct ContentView: View {
         case .result:
             ResultView(
             displayScore: score,
+            
+            //hårdkordat 3 frågor, kan göras dynamiskt
             totalQuestions: 3,
             screen: $screen,
-
             currentQuestionIndex: $currentQuestionIndex,
             score: $score)
         }
     }
-}
-
-#Preview {
-    ContentView()
 }

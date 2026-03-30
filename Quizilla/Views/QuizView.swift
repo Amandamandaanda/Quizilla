@@ -133,16 +133,3 @@ struct QuizView: View {
 
 
 
-#Preview {
-
-    @State var screen: showScreen = .quiz
-    @State var currentQuestionIndex: Int = 0
-    @State var score: Int = 0
-
-    QuizView(
-        screen: $screen,
-        currentQuestionIndex: $currentQuestionIndex,
-        score: $score
-    )
-}
-    
