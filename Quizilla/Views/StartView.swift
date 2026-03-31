@@ -9,6 +9,7 @@ import SwiftUI
 
 struct StartView: View {
     @Binding var screen: showScreen
+    let startGame: () -> Void
     
     var body: some View {
         ZStack {
@@ -32,6 +33,7 @@ struct StartView: View {
                     .padding(.bottom, 40)
                 
                 Button("Starta Quiz") {
+                    startGame()
                     screen = .quiz
                 }
                 .modifier(ButtonModifier())
