@@ -7,12 +7,6 @@
 
 import SwiftUI
 
-//// Temporary Question struct
-//struct Question {
-//    let title : String
-//    let options: [String]
-//    let correctAnswerIndex: Int
-//}
 
 struct QuizView: View {
     
@@ -22,17 +16,9 @@ struct QuizView: View {
     @Binding var currentQuestionIndex: Int
     @Binding var score: Int
 
+    let questions: [Question]
     
     @State private var selectedAnswerIndex: Int? = nil
-   
-    
-    @State private var questions: [Question] = [
-        Question(title: "What was the 2022 FIFA World Cup Final?", options: ["Argentina vs Brazil","Argentina vs France","Argentina vs Croatia"], correctAnswerIndex: 1),
-        Question(title: "What is the last book in the Twilight novel series?", options: ["Breaking Dawn","Life And Death: Twilight Reimagined","Midnight Sun"], correctAnswerIndex: 2),
-        Question(title: "Who is the most followed person on Instagram?", options: ["Kylie Jenner", "Taylor Swift", "Cristiano Ronaldo"], correctAnswerIndex: 2)
-    ]
-    
-
 
     
     var body: some View {
@@ -52,6 +38,7 @@ struct QuizView: View {
                 VStack(alignment: .center, spacing: 16) {
                         Text(question.title)
                         .modifier(CardModifier())
+                        .multilineTextAlignment(.center)
                     
                     ProgressView(value: Double(currentQuestionIndex + 1),
                                  total: Double(questions.count))

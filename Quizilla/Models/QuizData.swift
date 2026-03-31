@@ -5,9 +5,9 @@
 //  Created by Jonathan Strid on 2026-03-31.
 //
 
-private let questions: [Question] = [
+let quizQuestions: [Question] = [
     Question(
-        title: "Vad heter den brittiska maträtt som innehåller en korv som lindats in i smördeg och sedan tillagas i ugnen?",
+        title: "Vad heter den brittiska maträtt med en korv som lindats in i smördeg och sedan tillagas i ugnen?",
         options: ["Pigs in blanket", "Sausage Roll", "Toad in a hole"],
         correctAnswerIndex: 1),
     Question(
@@ -15,7 +15,7 @@ private let questions: [Question] = [
         options: ["The Cheesegrater", "The Walkie-Talkie", "The Teapot"],
         correctAnswerIndex: 2),
     Question(
-        title: "Vilket nummer använder du för att ringa till Storbritannien?",
+        title: "Vilket nummer använder man för att ringa till Storbritannien?",
         options: ["+44", "+1", "+46"],
         correctAnswerIndex: 0),
     Question(
@@ -59,12 +59,12 @@ private let questions: [Question] = [
         options: ["The Palace of Westminster", "Buckingham Palace", "Windsor Castle"],
         correctAnswerIndex: 0),
     Question(
-        title: "Vilken stad är huvudstad i Wales?",
+        title: "Vad heter huvudstaden i Wales?",
         options: ["Cardiff", "Swansea", "Newport"],
         correctAnswerIndex: 0),
     Question(
         title: "Vilken brittisk komiker skapade karaktären Mr. Bean?",
-        options: ["Ricky Gervais", "John Cleese","Rowan Atkinson"],
+        options: ["Ricky Gervais", "John Cleese", "Rowan Atkinson"],
         correctAnswerIndex: 2),
     Question(
         title: "Vilken dryck beställer du om du ber om en 'Pint of the black stuff'?",
@@ -79,7 +79,7 @@ private let questions: [Question] = [
         options: ["Hugh Grant", "Benedict Cumberbatch", "Colin Firth"],
         correctAnswerIndex: 2),
     Question(
-        title: "Vad heter Bonds favoritdrink?",
+        title: "Vad heter James Bonds favoritdrink?",
         options: ["Vodka Martini", "Gin & Tonic", "Whisky Sour"],
         correctAnswerIndex: 0),
     Question( // 20
