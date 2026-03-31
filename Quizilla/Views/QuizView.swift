@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-// Temporary Question struct
-struct Question {
-    let title : String
-    let options: [String]
-    let correctAnswerIndex: Int
-}
+//// Temporary Question struct
+//struct Question {
+//    let title : String
+//    let options: [String]
+//    let correctAnswerIndex: Int
+//}
 
 struct QuizView: View {
     
