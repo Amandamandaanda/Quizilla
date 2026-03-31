@@ -8,37 +8,7 @@
 import SwiftUI
 
 struct StartView: View {
-    @Binding var screen: showScreen
-    let startGame: () -> Void
-    
     var body: some View {
-        ZStack {
-            
-            VStack(spacing: 20) {
-                Image(systemName: "gamecontroller.fill")
-                    .font(.system(size: 70))
-                    .foregroundStyle(Color.theme.text)
-                
-                Text("Quizilla")
-                    .font(.largeTitle)
-                    .fontWeight(.heavy)
-                    .foregroundStyle(Color.theme.text)
-
-                    
-                
-                Text("Testa dina kunskaper!")
-                    .font(.title3)
-                    .fontWeight(.light)
-                    .foregroundStyle(Color.theme.text)
-                    .padding(.bottom, 40)
-                
-                Button("Starta Quiz") {
-                    startGame()
-                    screen = .quiz
-                }
-                .modifier(ButtonModifier())
-            }
-        }
-        .gradientBackground()
+        
     }
 }

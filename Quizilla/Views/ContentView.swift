@@ -7,55 +7,16 @@
 
 import SwiftUI
 
-enum showScreen {
-    case start
-    case quiz
-    case result
-
-}
-
 struct ContentView: View {
-    @State private var score: Int = 0
-    @State private var currentQuestionIndex: Int = 0
-    @State private var screen: showScreen = .start
-
-    let questions = quizQuestions  // Hämtar frågorna från QuizData
-
-    @State private var gameQuestions: [Question] = []
-
     var body: some View {
-
-        switch screen {
-        case .start:
-            StartView(screen: $screen, startGame: startNewGame)
-                
-        case .quiz:
-            QuizView(
-                screen: $screen,
-                currentQuestionIndex: $currentQuestionIndex,
-                score: $score,
-                questions: gameQuestions
-            )
-
-        case .result:
-            ResultView(
-                displayScore: score,
-
-                totalQuestions: gameQuestions.count,
-                screen: $screen,
-                currentQuestionIndex: $currentQuestionIndex,
-                score: $score
-            )
+        VStack {
+            Image(systemName: "globe")
+                .imageScale(.large)
+                .foregroundStyle(.tint)
+            Text("Hello, world!")
         }
+        .padding()
     }
-
-    // Slumpar 5 frågor från huvud-arrayen
-    func startNewGame() {
-        score = 0
-        currentQuestionIndex = 0
-        gameQuestions = Array(quizQuestions.shuffled().prefix(5))
-    }
-
 }
 
 #Preview {
