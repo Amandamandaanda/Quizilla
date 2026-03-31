@@ -15,6 +15,8 @@ enum showScreen {
 }
 
 struct ContentView: View {
+    @State private var score: Int = 0
+    @State private var currentQuestionIndex: Int = 0
     @State private var screen: showScreen = .start
     
     var body: some View {
@@ -24,14 +26,19 @@ struct ContentView: View {
             StartView(screen: $screen)
             
         case .quiz:
-            QuizView(screen: $screen)
+            QuizView(screen: $screen,
+            currentQuestionIndex: $currentQuestionIndex,
+            score: $score)
             
         case .result:
-            ResultView(screen: $screen)
+            ResultView(
+            displayScore: score,
+            
+            //hårdkordat 3 frågor, kan göras dynamiskt
+            totalQuestions: 3,
+            screen: $screen,
+            currentQuestionIndex: $currentQuestionIndex,
+            score: $score)
         }
     }
-}
-
-#Preview {
-    ContentView()
 }
