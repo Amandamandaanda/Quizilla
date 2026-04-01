@@ -32,7 +32,7 @@ struct StartView: View {
                     .foregroundStyle(Color.theme.text)
                     .padding(.bottom, 40)
                 
-                TextField("Do you want a nickname?", text: $viewModel.nickname)
+                TextField("Vill du ha ett smeknamn?", text: $viewModel.nickname)
                     .foregroundStyle(Color.theme.text)
                     .padding(30)
                 
