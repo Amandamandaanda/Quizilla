@@ -22,6 +22,12 @@ struct ResultView: View {
                                 .font(.largeTitle)
                                 .fontWeight(.heavy)
                                 .foregroundStyle(Color.theme.text)
+                
+                if !viewModel.nickname.isEmpty {
+                    Text(viewModel.score > viewModel.gameQuestions.count / 2 ? "Good job \(viewModel.nickname)" : "You can do better \(viewModel.nickname)!")
+                }
+                
+                
 
                 Text("\(viewModel.score) av \(viewModel.gameQuestions.count) rätt")
                                 .font(.title2)
