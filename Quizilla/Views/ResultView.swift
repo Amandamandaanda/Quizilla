@@ -24,7 +24,7 @@ struct ResultView: View {
                                 .foregroundStyle(Color.theme.text)
                 
                 if !viewModel.nickname.isEmpty {
-                    Text(viewModel.score > viewModel.gameQuestions.count / 2 ? "Good job \(viewModel.nickname)" : "You can do better \(viewModel.nickname)!")
+                    Text(viewModel.score > viewModel.gameQuestions.count / 2 ? "Bra spelat \(viewModel.nickname)!" : "Du kan bättre \(viewModel.nickname)!")
                 }
                 
                 
