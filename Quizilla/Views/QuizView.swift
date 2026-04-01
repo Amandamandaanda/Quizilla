@@ -14,9 +14,6 @@ struct QuizView: View {
     
     @Bindable var viewModel: QuizViewModel
     
-    @State private var selectedAnswerIndex: Int? = nil
-
-    
     var body: some View {
         
         let question = viewModel.gameQuestions[viewModel.currentQuestionIndex]
@@ -51,7 +48,12 @@ struct QuizView: View {
                                 Text(question.options[index])
                                     .frame(maxWidth: .infinity)
                                     .padding()
-                                    .background(backgroundColor(for: index))
+                                    .background(
+                                        Color.backgroundColor(
+                                            index: index,
+                                            correctAnswerIndex: question.correctAnswerIndex,
+                                            selectedAnswerIndex: viewModel.selectedAnswerIndex)
+                                    )
                             }
                             .modifier(ButtonModifier())
                             .disabled(viewModel.selectedAnswerIndex != nil)
