@@ -19,6 +19,8 @@ class QuizViewModel {
     private let allQuestions = quizQuestions
     var gameQuestions: [Question] = []
     
+    var nickname: String = ""
+    
     func startNewGame() {
         
         score = 0
@@ -28,6 +30,7 @@ class QuizViewModel {
     }
     
     func backToStart() {
+        nickname = ""
         screen = .start
     }
     
