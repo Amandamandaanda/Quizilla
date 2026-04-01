@@ -23,11 +23,17 @@ struct ContentView: View {
 
     @State private var gameQuestions: [Question] = []
 
+//    @State private var viewModel = QuizViewModel()
+    
     var body: some View {
 
+//        switch viewModel.screen {
         switch screen {
         case .start:
-            StartView(screen: $screen, startGame: startNewGame)
+            StartView(screen: $screen,
+                startGame: startNewGame)
+            
+//            StartView(startGame: viewModel.startNewGame)
                 
         case .quiz:
             QuizView(
@@ -36,6 +42,7 @@ struct ContentView: View {
                 score: $score,
                 questions: gameQuestions
             )
+//            QuizView(viewModel: viewModel)
 
         case .result:
             ResultView(
@@ -46,6 +53,9 @@ struct ContentView: View {
                 currentQuestionIndex: $currentQuestionIndex,
                 score: $score
             )
+//            ResultView(
+//                displayScore: viewModel.score, totalQuestions: viewModel.gameQuestions.count, backToStart: viewModel.backToStart
+//            )
         }
     }
 
