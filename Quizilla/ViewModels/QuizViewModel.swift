@@ -32,20 +32,22 @@ class QuizViewModel {
     }
     
     func submitAnswer(_ index: Int) {
+        selectedAnswerIndex = index
         
         let question = gameQuestions[currentQuestionIndex]
         
         if index == question.correctAnswerIndex {
             score += 1
         }
-        
-        if currentQuestionIndex < gameQuestions.count - 1 {
-            currentQuestionIndex += 1
-        } else {
-            screen = .result
-        }
-        
-    }
-
     
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            if self.currentQuestionIndex < self.gameQuestions.count - 1 {
+                self.currentQuestionIndex += 1
+            } else {
+                self.screen = .result
+            }
+            
+            self.selectedAnswerIndex = nil
+        }
+    }
 }
