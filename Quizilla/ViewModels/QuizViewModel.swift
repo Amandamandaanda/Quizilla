@@ -20,12 +20,13 @@ class QuizViewModel {
     var gameQuestions: [Question] = []
     
     var nickname: String = ""
+    var selectedAmount: Int = 5
     
     func startNewGame() {
         
         score = 0
         currentQuestionIndex = 0
-        gameQuestions = Array(allQuestions.shuffled().prefix(5))
+        gameQuestions = Array(allQuestions.shuffled().prefix(selectedAmount))
         screen = .quiz
     }
     
