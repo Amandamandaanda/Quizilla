@@ -15,9 +15,9 @@ extension Color {
         
         if let selected = selectedAnswerIndex {
             if index == correctAnswerIndex {
-                return .green
+                return .green.opacity(0.65)
             } else if index == selected {
-                return .red
+                return red.opacity(0.65)
             }
         }
         return Color.theme.secondaryPurpleColor.opacity(0.15)
@@ -34,4 +34,6 @@ struct ColorTheme {
     let buttonBorder = Color("ButtonBorderColor")
     let buttonTextColor = Color("ButtonTextColor")
     let thirdPurpleColor = Color("ThirdPurpleColor")
+    let greenColor = Color("GreenColor")
+    let redColor = Color("RedColor")
 }
