@@ -10,6 +10,18 @@ import SwiftUI
 
 extension Color {
     static let theme = ColorTheme()
+    
+    static func backgroundColor(index: Int, correctAnswerIndex: Int, selectedAnswerIndex: Int?) -> Color {
+        
+        if let selected = selectedAnswerIndex {
+            if index == correctAnswerIndex {
+                return .green
+            } else if index == selected {
+                return .red
+            }
+        }
+        return Color.theme.secondaryPurpleColor.opacity(0.15)
+    }
 }
 
 struct ColorTheme {
