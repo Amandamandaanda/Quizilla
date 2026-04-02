@@ -22,6 +22,7 @@ struct StartView: View {
                     .font(.largeTitle)
                     .fontWeight(.heavy)
                     .foregroundStyle(Color.theme.text)
+            
 
                     
                 
@@ -30,6 +31,10 @@ struct StartView: View {
                     .fontWeight(.light)
                     .foregroundStyle(Color.theme.text)
                     .padding(.bottom, 40)
+                
+                TextField("Vill du ha ett smeknamn?", text: $viewModel.nickname)
+                    .foregroundStyle(Color.theme.text)
+                    .padding(30)
                 
                 Button("Starta Quiz") {
                     viewModel.startNewGame()
