@@ -27,9 +27,7 @@ struct StartView: View {
                     .font(.title3)
                     .fontWeight(.light)
                     .foregroundStyle(Color.theme.text)
-                    .padding(.bottom, 40)
-                
-                
+                    .padding(.bottom, 40)                
                 
                 VStack {
                     Text("Välj antal frågor")
