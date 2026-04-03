@@ -13,4 +13,3 @@ struct Question: Identifiable {
     let options: [String]
     let correctAnswerIndex: Int
 }
-
